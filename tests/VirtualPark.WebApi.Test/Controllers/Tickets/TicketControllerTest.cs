@@ -121,7 +121,7 @@ public sealed class TicketControllerTest
             VisitorId = visitorId,
             Type = "Event",
             EventId = eventId,
-            Date = "2025-12-15"
+            Date = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd")
         };
 
         var expectedArgs = request.ToArgs();
@@ -151,7 +151,7 @@ public sealed class TicketControllerTest
             VisitorId = Guid.NewGuid().ToString(),
             Type = "General",
             EventId = string.Empty,
-            Date = "2025-12-15"
+            Date = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd")
         };
 
         Action act = () => _controller.CreateTicket(request);
